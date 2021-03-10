@@ -1,6 +1,6 @@
 <template>
 <header>
-    <h2>This Page Is Belong To PostsData.</h2>
+    <h2>PostsData</h2>
 </header>
     <base-card>
         <div>
