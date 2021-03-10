@@ -1,13 +1,15 @@
 <template>
   <section>
+    <h1>Welcome to Home Page</h1>
     <base-card>
     <div class="home">
-      <h1>Welcome to Home Page</h1>
       <div class="card border-success mb-3" style="max-width: 100%;">
         <div class="card-header bg-transparent border-success">
-            <base-button>
+             <base-button>
               <router-link to="/posts/">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</router-link>
             </base-button>
+
+            <!-- <post v-for="post in posts" :key="post.id" :title="post.title"></post> -->
         </div>
         <div class="card-body text-success">
           <h5 class="card-title">
@@ -30,7 +32,23 @@
 </template>
 
 <script>
-// @ is an alias to /src
+/* eslint-disable */
+// import axios from 'axios';
+import Post from '@/components/Post.vue'
+// @ is an alias to /
+export default {
+  components: { Post },
+  data () {
+    return {
+      posts: []
+    }
+  },
+  mounted () {
+    // axios.get('https://jsonplaceholder.typicode.com/posts').then(response =>{
+    //   this.posts=response.data;
+    // }) 
+  }
+}
 </script>
 
 <style scoped>

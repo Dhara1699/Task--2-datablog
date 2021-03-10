@@ -1,6 +1,6 @@
 <template>
+<h2>This Page Belongs To The CommentData</h2>
     <base-card>
-    <h2>This Page Belongs To The CommentData</h2>
     <div>
         <ul>
             <li v-for="comment in comments" :key="comment.postId">
@@ -14,19 +14,18 @@
 
 <script>
 import axios from 'axios';
-window.axios = require('axios');
+
 export default {
     data() {
         return {
             comments : null
         };
     },
-    mounted: 
-        function() {
+    mounted() {
             axios.get('https://jsonplaceholder.typicode.com/comments/').then(response =>{
             console.log(response.data);
             this.comments=response.data;
         }) 
     }
 }
-</script>
+</script>s
