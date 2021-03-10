@@ -2,9 +2,9 @@
     <h2>This Page Is Belong To PostsData.</h2>
     <base-card>
         <div>
-            <ul>
-                <li :v-for="'post' in posts" v-text="post.id"></li>
-            </ul>
+          <li v-for="post in posts" :key="post.title">
+            {{ post.title }}
+        </li>
         </div>
     </base-card>
 </template>
@@ -19,8 +19,10 @@ export default {
         }; 
     },
     mounted: function() {
-        axios.get('https://jsonplaceholder.typicode.com/posts/')
-        .then(response => this.posts = response.json() ).then((json) => console.log(json));
+        axios.get('https://jsonplaceholder.typicode.com/posts/').then(response =>{
+            console.log(response.data);
+            this.posts=response.data;
+        }) 
     }
 }   
 </script>
