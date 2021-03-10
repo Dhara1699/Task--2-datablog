@@ -4,7 +4,7 @@
         <div>
             <ul>
                 <li v-for="post in posts"  :key="post.userId">
-                    {{ post.title }}
+                   {{post.userId}} - {{ post.id }} - {{ post.title }} - {{ post.body }}
                 </li>
             </ul>
         </div>

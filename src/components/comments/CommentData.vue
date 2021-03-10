@@ -4,6 +4,11 @@
     <div>
         <ul>
             <li v-for="comment in comments" :key="comment.postId">
+                {{ comment.postId }} - 
+                {{ comment.id }} - 
+                {{ comment.name }} - 
+                {{ comment.name }} - 
+                {{ comment.email }} - 
                 {{ comment.body }}
             </li>
             <li v-for="comment in comments" :key="comment.postId">{{ comment.email }}</li>

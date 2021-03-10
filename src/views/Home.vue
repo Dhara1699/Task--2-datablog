@@ -6,7 +6,7 @@
       <div class="card border-success mb-3" style="max-width: 100%;">
         <div class="card-header bg-transparent border-success">
              <base-button>
-              <router-link to="/posts/">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</router-link>
+              <router-link to="/posts/">POSTS</router-link>
             </base-button>
 
             <!-- <post v-for="post in posts" :key="post.id" :title="post.title"></post> -->
@@ -14,15 +14,13 @@
         <div class="card-body text-success">
           <h5 class="card-title">
             <base-button>
-              <router-link to="/comment">
-                quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
-              </router-link>
+              <router-link to="/comment">COMMENTS</router-link>
             </base-button>
           </h5>
         </div>
         <div class="card-footer bg-transparent border-success">
           <base-button>  
-            <router-link to="/user">Bret(Leanne Graham)</router-link>
+            <router-link to="/user">USERS</router-link>
           </base-button>
         </div>
       </div>
