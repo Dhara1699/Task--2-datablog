@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
-import PostsData from '../components/PostsData.vue';
-import UserData from '../components/UserData.vue';
-import CommentData from '../components/CommentData.vue';
+import PostsData from '../components/posts/PostsData.vue';
+import PostsItems from '../components/posts/PostsItems.vue';
+import UserData from '../components/users/UserData.vue';
+import CommentData from '../components/comments/CommentData.vue';
 
 
 const routes = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
   {
     path: '/home',
     name: 'Home',
@@ -15,7 +20,8 @@ const routes = [
   {
     path: '/posts' , 
     name: 'Posts' , 
-    component: PostsData 
+    component: PostsData,
+    children: [ { path: ':id', name: 'PostsItems', component: PostsItems } ]
   },
   { 
     path: '/user' , 

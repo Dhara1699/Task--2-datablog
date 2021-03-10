@@ -6,18 +6,17 @@
       <div class="card border-success mb-3" style="max-width: 100%;">
         <div class="card-header bg-transparent border-success">
             <base-button>
-              <router-link to="/posts">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</router-link>
+              <router-link to="/posts/">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</router-link>
             </base-button>
         </div>
         <div class="card-body text-success">
           <h5 class="card-title">
             <base-button>
               <router-link to="/comment">
-                comments
+                quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto
               </router-link>
             </base-button>
           </h5>
-          <p class="card-text"> write Some comment here</p>
         </div>
         <div class="card-footer bg-transparent border-success">
           <base-button>  
