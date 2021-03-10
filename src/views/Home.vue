@@ -1,6 +1,8 @@
 <template>
   <section>
+    <header>
     <h1>Welcome to Home Page</h1>
+    </header>
     <base-card>
     <div class="home">
       <div class="card border-success mb-3" style="max-width: 100%;">
@@ -56,5 +58,16 @@ a {
 }
  a.router-link-exact-active {
   color: #b94242;
+}
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #58004d;
+  color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
 }
 </style>

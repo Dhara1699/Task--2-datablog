@@ -5,20 +5,20 @@
     <base-card>
     <div>
         <ul v-for="user in users" :key="user.id">
-            <li id="item">{{ user.id }}</li>
-            <li>{{ user.name }}</li>
-            <li>{{ user.username }}</li>
-            <li id="email">{{ user.email }}</li>
-            <li>ADDRESS : {{ user.address.street }} , 
+            <li id="item"><strong>Id</strong> : {{ user.id }}</li>
+            <li><strong>Name</strong> : {{ user.name }}</li>
+            <li><strong>UserName</strong> : {{ user.username }}</li>
+            <li id="email"><strong>Email</strong> : {{ user.email }}</li>
+            <li><strong>ADDRESS</strong> : {{ user.address.street }} , 
                           {{ user.address.suite }} ,
                           {{ user.address.city }} ,
                           {{ user.address.zipcode }} ,
                           {{ user.address.geo.late }} ,
                           {{ user.address.geo.lng }} .
             </li>
-            <li>{{ user.phone }}</li>
-            <li>{{ user.website }}</li>
-            <li>COMPANY : {{ user.company.name }} ,
+            <li><strong>Phone</strong> : {{ user.phone }}</li>
+            <li id="website"><strong>Website</strong> : {{ user.website }}</li>
+            <li> <strong>COMPANY</strong> : {{ user.company.name }} ,
                           {{ user.company.catchPhrase }} ,
                           {{ user.company.bs }}.  
             </li>
@@ -88,11 +88,7 @@ header {
     text-decoration-style: inherit;
     color: red;
 }
-
- .h2 {
-  font-size: 2rem;
-  border-bottom: 4px solid #ccc;
-  color: #58004d;
-  margin: 0 0 1rem 0;
+#website {
+    color: rgb(30, 153, 30);
 }
 </style>
