@@ -6,13 +6,26 @@
     <div id="user">
       <div id="posts">
         <!-- <li v-for="user in users" :key="user.userId"> -->
-        <ul v-for="post in posts" :key="post.userId">
-            <a><strong>@{{post.user.username}}({{post.user.name}})</strong></a>
+        <p v-if="isLoading">Loading....</p>
+        <p v-else-if="!isLoading && error">{{ error }}</p>
+        <ul v-for="post in posts" :key="post.userId" v-else>
+          <router-link to="/user"
+            ><strong
+              >@{{ post.user.username }}({{ post.user.name }})</strong
+            ></router-link
+          >
           <!-- <li><strong>{{ user.username }}@{{ user.name }}</strong></li> -->
           <!-- <li id="item"><strong>UserId</strong> : {{ post.userId }}</li> -->
           <li id="item"><strong>Id</strong> : {{ post.id }}</li>
-          <li id="title"><strong>Title</strong> : {{ post.title }}</li>
-          <li><strong>Body</strong> : {{ post.body }}</li>
+          <button class="title" @click="toggleDetails">
+            {{ bodyAreVisible ? "" : "" }}
+            <li class="title_button">
+              <strong>Title</strong> : {{ post.title }}
+            </li>
+          </button>
+          <li class="body" v-if="bodyAreVisible">
+            <strong>Body</strong> : {{ post.body }}
+          </li>
         </ul>
         <!-- </li> -->
       </div>
@@ -28,22 +41,33 @@ export default {
     return {
       posts: [],
       users: [],
+      bodyAreVisible: false,
+      isLoading: false,
+      error: null,
     };
   },
   mounted() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
+    this.isLoading = true;
+    this.error = null;
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
         this.users = response.data;
-
         axios
-        .get("https://jsonplaceholder.typicode.com/posts")
-        .then((response) => {
-
+          .get("https://jsonplaceholder.typicode.com/posts")
+          .then((response) => {
             response.data.map((post) => {
-                post.user = this.users.find((user) => user.id === post.userId)
-            })
+              post.user = this.users.find((user) => user.id === post.userId);
+            });
             this.posts = response.data;
-        })
-    });
+          });
+        this.isLoading = false;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        this.error = "Failed to fetch data";
+      });
 
     // const headers = { "Content-Type": "application/json" };
     // axios
@@ -57,7 +81,7 @@ export default {
     //                 console.log(res.data);
 
     //                 //this.users = response.data;
-    //             }) 
+    //             })
     //         }*/
     //     axios
     //       .get("https://jsonplaceholder.typicode.com/users")
@@ -66,6 +90,11 @@ export default {
     //         return (this.users = response.data);
     //       });
     //   });
+  },
+  methods: {
+    toggleDetails() {
+      this.bodyAreVisible = !this.bodyAreVisible;
+    },
   },
 };
 </script>
@@ -105,16 +134,30 @@ li {
   list-style-type: none;
   text-align: center;
 }
-
-#title {
-  color: blue;
-  font-size: larger;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  text-decoration: underline;
-  font-weight: bold;
-}
 #item {
   text-decoration-style: inherit;
   color: red;
+}
+.title {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: green;
+  color: black;
+  text-align: left;
+  transition: background 0.2s;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: larger;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.body {
+  text-align: inherit;
+  font-display: swap;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background: whitesmoke;
 }
 </style>
